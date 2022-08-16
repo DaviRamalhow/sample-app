@@ -2,6 +2,7 @@ import MainLayout from "../layouts/MainLayout.vue";
 
 import AboutView from "../views/AboutView.vue";
 import HomeView from "../views/HomeView.vue";
+import Atividade01 from "../views/Atividade01.vue";
 
 export const routes = [
   {
@@ -18,6 +19,12 @@ export const routes = [
         name: "AboutView",
         component: AboutView,
       },
+      {
+        path: "/atividade01",
+        name: "atividade01",
+        component: Atividade01,
+      },
+
     ],
   },
 ];
