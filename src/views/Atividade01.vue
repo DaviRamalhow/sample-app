@@ -1,31 +1,59 @@
 <template>
   <div class="container_atv1">
+    <div class="list">
+      <ui-button v-for="(item, key) in pokemons" :key="key" @click="getPokemon(item.url)">
+        {{ item.name }}
+      </ui-button>
+    </div>
 
-    <button @click="compAtv = 'AppInput'" class="btn-rand">Clique</button>
-    <button @click="compAtv = 'AppInput2'" class="btn-rand">Clique</button>
-    <component :is="compAtv" />
-
-
+    <AppInput2 @pressed="pressed"></AppInput2>
+    <div v-if="pokemon">
+      <img :src="pokemon.sprites?.back_default" alt="">
+    </div>
 
   </div>
 </template>
 
-<script lang="ts">
-import AppInput from "../components/AppInput.vue";
+<script lang="ts" setup>
+//import AppInput from "../components/AppInput.vue";
+import { onMounted, Ref, ref } from "vue";
 import AppInput2 from "../components/AppInput2.vue";
 
-export default {
-  components: { AppInput, AppInput2 },
+interface Pokemons {
+  name: string;
+  url: string;
+}
 
-  data() {
+interface PokemonSprites {
+  back_default: string;
+}
 
-    return {
-      compAtv: "AppInput"
-    };
-  }
+interface Pokemon {
+  sprites?: PokemonSprites;
+}
 
+const pokemon: Ref<Pokemon> = ref({});
+const pokemons: Ref<Pokemons[]> = ref([]);
+
+async function pressed() {
+  const info = await fetch("https://pokeapi.co/api/v2/pokemon/rattata");
+  const json = await info.json();
+  pokemon.value = json;
+  console.log(json);
+}
+
+const getPokemon = async (url: string) => {
+  const info = await fetch(url);
+  const json = await info.json();
+  pokemon.value = json;
 };
 
+onMounted(async () => {
+  const info = await fetch("https://pokeapi.co/api/v2/pokemon");
+  const json = await info.json();
+  pokemons.value = json.results;
+  console.log(json);
+});
 
 </script>
 
