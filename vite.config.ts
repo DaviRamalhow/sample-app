@@ -3,7 +3,11 @@ import { resolve } from "path";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue({
+    reactivityTransform: true,
+  }),
+],
   resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),

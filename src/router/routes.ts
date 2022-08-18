@@ -4,6 +4,7 @@ import AboutView from "../views/AboutView.vue";
 import HomeView from "../views/HomeView.vue";
 import Atividade01 from "../views/Atividade01.vue";
 import Atividade02 from "../views/Atividade02.vue";
+import Atividade03 from "../views/Atividade03.vue";
 
 export const routes = [
   {
@@ -29,6 +30,11 @@ export const routes = [
         path: "/atividade02",
         name: "atividade02",
         component: Atividade02,
+      },
+      {
+        path: "/atividade03",
+        name: "atividade03",
+        component: Atividade03,
       },
 
     ],

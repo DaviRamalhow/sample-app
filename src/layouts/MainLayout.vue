@@ -4,7 +4,8 @@
       <router-link to="/">Register</router-link> |
       <router-link to="/about">Login</router-link> |
       <router-link to="/atividade01">Atividade 01</router-link> |
-      <router-link to="/atividade02">Atividade 02</router-link>
+      <router-link to="/atividade02">Atividade 02</router-link> |
+      <router-link to="/atividade03">Atividade 03</router-link>
     </nav>
     <router-view />
   </div>
