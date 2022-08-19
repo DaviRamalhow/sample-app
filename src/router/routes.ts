@@ -5,6 +5,7 @@ import HomeView from "../views/HomeView.vue";
 import Atividade01 from "../views/Atividade01.vue";
 import Atividade02 from "../views/Atividade02.vue";
 import Atividade03 from "../views/Atividade03.vue";
+import Atividade04 from "../views/Atividade04.vue";
 
 export const routes = [
   {
@@ -35,6 +36,11 @@ export const routes = [
         path: "/atividade03",
         name: "atividade03",
         component: Atividade03,
+      },
+      {
+        path: "/atividade04",
+        name: "atividade04",
+        component: Atividade04,
       },
 
     ],
