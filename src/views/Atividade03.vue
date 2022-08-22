@@ -11,7 +11,7 @@
 import { trigger } from "@vue/reactivity";
 import { Ref, ref, toRef, reactive, toRefs, customRef } from "vue";
 
-const batata = $ref("banana");
+const batata = ref("banana");
 
 // const cube = reactive({
 //     length: 10,
@@ -20,7 +20,7 @@ const batata = $ref("banana");
 // });
 
 const mudar = () => {
-    batata = "danone";
+    batata.value = "danone";
 };
 
 function useDebouncedRef(value: string, delay = 1000) {

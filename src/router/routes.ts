@@ -7,6 +7,7 @@ import Atividade02 from "../views/Atividade02.vue";
 import Atividade03 from "../views/Atividade03.vue";
 import Atividade04 from "../views/Atividade04.vue";
 
+
 export const routes = [
   {
     path: "/",

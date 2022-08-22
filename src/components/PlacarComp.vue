@@ -4,7 +4,7 @@
         <ui-button @click="add">ADD</ui-button>
         <ui-button @click="rem">REM</ui-button>
     </div>
-</template>
+</template>v'1
 
 <script lang="ts" setup>
 import { ref, toRefs } from "vue";
