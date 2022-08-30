@@ -1,25 +1,48 @@
 <template>
   <div>
-    <FormPasswordContainer> </FormPasswordContainer>
-    <UiButton>Login</UiButton>
+    <i>{{  quote  }}</i>
+    <p>-Kanye West</p>
+    <p>
+      <button @click="createPost" class="bg-orange-400 rounded-md py-2 px-2">Create Post </button>
+    </p>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { ref } from "vue";
+import axios from "axios";
+import KanyeAPI from "../services/KanyeAPI";
+const quote = ref();
+
+const loadQuote = async () => {
+
+  try {
+    const response = await KanyeAPI.getQuote();
+    quote.value = response.data.quote;
+  } catch (err) {
+    console.log(err);
+  }
+
+};
+const createPost = async () => {
+  const response = await KanyeAPI.createPost(JSON.stringify({
+    title: "foo",
+    body: "bar",
+    userId: 1,
+  }));
+  console.log(response);
+};
+
+
+loadQuote();
+
+// axios.get("https://api.kanye.rest/")
+//   .then(response => {
+//     quote.value = response;
+//     console.log(quote);
+//   });
 
 </script>
 
 <style lang="scss" scoped>
-.container_register {
-  display: flex;
-  width: 500px;
-  height: 500px;
-  border: 1px solid black;
-  margin: auto;
-  border-radius: 20px;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
 </style>
