@@ -2,6 +2,11 @@
   <div>
     <i>{{  quote  }}</i>
     <p>-Kanye West</p>
+    <br>
+    <p>
+      <button @click="loadQuote" class="bg-orange-400 rounded-md py-2 px-2">Generate Quote</button>
+    </p>
+    <br>
     <p>
       <button @click="createPost" class="bg-orange-400 rounded-md py-2 px-2">Create Post </button>
     </p>
@@ -32,6 +37,7 @@ const createPost = async () => {
   }));
   console.log(response);
 };
+
 
 
 loadQuote();
